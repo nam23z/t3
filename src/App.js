@@ -1,5 +1,6 @@
 import './App.css';
 import { Button } from 'component/Button/Button';
+import { TopCreate } from 'component/TopCreate/TopCreate';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
         <Button percent={-5.1} nameETH={"ROI"} typeETH={"%"} numETH={"14.02"}></Button>
         <Button percent={3.2} nameETH={"Estimated"} typeETH={"ETH"} numETH={"7.00"}></Button>
       </header>
+      <TopCreate ></TopCreate>
     </div>
   );
 }
