@@ -9,7 +9,6 @@ const StyledButton = styled.button`
   font-weight: 500;
   line-height: 21px;
   color: ${props => props.textColor};
-  color: ${props => props.fontSize};
   img {
     margin-right: 8px;
   }
@@ -32,8 +31,8 @@ export const Button = ({ width, height, textColor, bgColor, boderColor, percent,
  Button.defaultProps = {
   bgColor: '#FFFFFF',
   textColor: '#5429FF',
-  width: 128,
-  height: 46,
+  width: "128px",
+  height: "46px",
   borderRadius: '40px',
-  fontSize: 16,
+  fontSize: "16px",
 };

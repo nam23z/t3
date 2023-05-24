@@ -1,5 +1,6 @@
 import React from "react";
 import { styled } from "styled-components";
+import Button from "component/Button";
 
 const StyledCreator = styled.div`
     display: flex;
@@ -17,10 +18,6 @@ const StyledCreator = styled.div`
         line-height: 16px;
     }
 `
-
-const Butt = styled.button`
-    
-`
 const Creatore = ({num, avt, name, mail}) => {
     return (
         <StyledCreator>
@@ -31,7 +28,7 @@ const Creatore = ({num, avt, name, mail}) => {
                     <div className="mail">{mail}</div>
                 </div>
             <div>
-                <Butt>Follow</Butt>
+                <Button>Follow</Button>
             </div>
         </StyledCreator>
     );
