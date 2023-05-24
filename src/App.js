@@ -1,18 +1,15 @@
-import './App.css';
-import { Button } from 'component/Button/Button';
-import { TopCreate } from 'component/TopCreate/TopCreate';
+import {Routes, Route} from "react-router-dom";
+import Home from './container/Home/index';
+import About from './container/About/index';
+import PageNotFound from "container/PageNotFound";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Button percent={12.3} nameETH={"Revenue"} typeETH={"ETH"} numETH={"5.00"}></Button>
-        <Button percent={8.1} nameETH={"Spending"} typeETH={"ETH"} numETH={"2.00"}></Button>
-        <Button percent={-5.1} nameETH={"ROI"} typeETH={"%"} numETH={"14.02"}></Button>
-        <Button percent={3.2} nameETH={"Estimated"} typeETH={"ETH"} numETH={"7.00"}></Button>
-      </header>
-      <TopCreate ></TopCreate>
-    </div>
+    <Routes>
+      <Route path='/' element={<Home/>} />
+      <Route path='/about' element={<About/>} />
+      <Route path='*' element={<PageNotFound/>} />
+    </Routes>
   );
 }
 
