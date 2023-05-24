@@ -1,8 +1,14 @@
 import { styled } from "styled-components";
 import logo from 'assets/image/Logo.svg';
 import iconDashboard from 'assets/image/Icon1.svg';
-// import iconMarket from 'assets/image/Icon2.svg';
-// import iconActiveBids from 'assets/image/Icon3.svg';
+import iconMarket from 'assets/image/Icon2.svg';
+import iconActiveBids from 'assets/image/Icon3.svg';
+import iconMyportfolio from 'assets/image/Icon4.svg';
+import iconWallet from 'assets/image/Icon5.svg';
+import iconFavourites from 'assets/image/Icon6.svg';
+import iconHistory from 'assets/image/Icon7.svg';
+import iconSetting from 'assets/image/Icon8.svg';
+import iconLightMode from 'assets/image/Icon9.svg';
 import { NavLink } from "react-router-dom";
 
 const StyledSideBar = styled.div`
@@ -43,10 +49,10 @@ const StyledNavItem = styled.div`
     }
 `;
 
-const NavItem = ({text, path}) => {
+const NavItem = ({text, path, iconsidebar}) => {
     return (
         <StyledNavItem>
-            <img src={iconDashboard} alt="nav-icon"></img>
+            <img src={iconsidebar} alt="nav-icon"></img>
             <NavLink to={path}>{text}</NavLink>
         </StyledNavItem>
     )
@@ -63,7 +69,21 @@ const SideBar = () => {
                 </div>
             </div>
             <div className="nav">
-                <NavItem text="Dashboard" path="/"></NavItem>
+                <NavItem text="Dashboard" path="/" iconsidebar={iconDashboard}></NavItem>
+                <NavItem text="Market" path="/" iconsidebar={iconMarket}></NavItem>
+                <NavItem text="Active Bids" path="/" iconsidebar={iconActiveBids}></NavItem>
+            </div>
+            <div className="profile">
+                <h4>PROFILE</h4>
+                <NavItem text="My Portfolio" path="/" iconsidebar={iconMyportfolio}></NavItem>
+                <NavItem text="Wallet" path="/" iconsidebar={iconWallet}></NavItem>
+                <NavItem text="Favourites" path="/" iconsidebar={iconFavourites}></NavItem>
+                <NavItem text="History" path="/" iconsidebar={iconHistory}></NavItem>
+                <NavItem text="Settings" path="/" iconsidebar={iconSetting}></NavItem>
+            </div>
+            <div className="other">
+                <h4>OTHER</h4>
+                <NavItem text="Light Mode" path="/" iconsidebar={iconLightMode}></NavItem>
             </div>
         </StyledSideBar>
     )

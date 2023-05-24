@@ -4,7 +4,7 @@ import Header from 'component/Header';
 
 
 const StyledLayout = styled.div`
-    background-color: #1c233d;
+    background-color: #CAEAE6;
     min-height: 100vh;
     .right{
         float: right;

@@ -7,15 +7,33 @@ const StyledHeader = styled.div`
     display: flex;
     justify-content: space-between;
     z-index: 99;
-    width: 100%;
     height: 56px;
+    padding: 20px;
+    .RightHeader{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 140px;
+    }
+    .notification{
+        background-color: #ffffff;
+        padding: 15px 16px 13px;
+        border-radius: 50%;
+        margin-bottom: 4px;
+    }
+    .notification img{
+        display: inline-block;
+    }
+    .avtar{
+        text-align: center;
+    }
 `;
 
 const Header = () => {
     return(
         <StyledHeader>
                 <Input iconLeft={SearchIcon} width={"461px"} padding={"4px"} bgColor={"white"} widthIpIp={"80%"} widthIconIp={"10%"} content={"Search Item, Collection and Account..."} borderRadius={"35px"}></Input>
-            <div>
+            <div className="RightHeader">
                 <div className="notification"><img src={IconNoti} alt="notification" /></div>
                 <div className="avtar"><img src={MyAvt} alt="myavt" /></div>
             </div>
