@@ -8,10 +8,11 @@ const Proper = styled.div`
     background-color: white;
     border-radius: 12px;
     color: #747475;
-    width: 164px;
+    width: 144px;
+    height: 147px;
     display: inline-block;
-    margin: 20px 0;
     padding: 10px;
+    margin-bottom: 18px;
     .nam{
         font-size: 14px;
         text-align: left;
@@ -29,12 +30,14 @@ const Proper = styled.div`
     
 `
 
+const formatNumber = (number) => new Intl.NumberFormat('en-IN', { minimumSignificantDigits: 3 }).format(number)
+
 export const Widget = ({percent, children, nameETH, numETH, typeETH}) => {
     return (
     <Proper>
         <p className="nam">{nameETH}</p>
         {typeETH !== "ETH" ? "+" : <img className="ethe" src={ethereumBlue} alt="ethereum"></img>}
-        <span className="ethenum">{numETH}</span>
+        <span className="ethenum">{formatNumber(numETH)}</span>
         <span className="ethh">{typeETH}</span>
     <Button 
         percent = {percent}

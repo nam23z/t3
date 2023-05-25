@@ -8,7 +8,7 @@ const StyledHeader = styled.div`
     justify-content: space-between;
     z-index: 99;
     height: 56px;
-    padding: 20px;
+    padding: 32px;
     .RightHeader{
         display: flex;
         justify-content: space-between;

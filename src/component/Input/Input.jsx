@@ -72,12 +72,4 @@ export default Input;
 Input.defaultProps = {
     width: "150px",
     bgColor: "white",
-    // borderRadius={borderRadius}
-    // borderFocus={borderFocus}
-    // padding={padding}
-    // fontSize={fontSize}
-    // widthIpIp={widthIpIp}
-    // widthIconIp={widthIconIp}
-    // icon={icon}
-    // textColor={textColor}
 }

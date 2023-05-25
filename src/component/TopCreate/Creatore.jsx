@@ -4,7 +4,7 @@ import Button from "component/Button";
 
 const StyledCreator = styled.div`
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     font-size: 16px;
     margin-bottom: 16px;
@@ -28,7 +28,14 @@ const Creatore = ({num, avt, name, mail}) => {
                     <div className="mail">{mail}</div>
                 </div>
             <div>
-                <Button>Follow</Button>
+                <Button
+                    bgColor={"rgba(84, 41, 255, 0.1)"}
+                    fontSize={"12px"}
+                    width={"77px"}
+                    height={"32px"}
+                >
+                    Follow
+                </Button>
             </div>
         </StyledCreator>
     );

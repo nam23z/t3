@@ -5,6 +5,8 @@ import Header from 'component/Header';
 
 const StyledLayout = styled.div`
     background-color: #CAEAE6;
+    width: 1440px;
+    margin: 0 auto;
     min-height: 100vh;
     .right{
         float: right;
@@ -14,8 +16,8 @@ const StyledLayout = styled.div`
 
 const ContentStyled = styled.div`
     background-color: #CAEAE6;
-    margin-top: 64px;
     height: 100vh;
+    padding: 8px 32px;
 `;
 
 const SideBarStyled = styled.div`

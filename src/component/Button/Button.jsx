@@ -9,16 +9,19 @@ const StyledButton = styled.button`
   font-weight: 500;
   line-height: 21px;
   color: ${props => props.textColor};
+  font-family: ${props => props.fontFami};
+  cursor: pointer;
   img {
     margin-right: 8px;
   }
 `;
-export const Button = ({ width, height, textColor, bgColor, boderColor, percent, fontSize, borderRadius, children, ...rest }) => {
+export const Button = ({ width, height, textColor, fontFami, bgColor, boderColor, percent, fontSize, borderRadius, children, ...rest }) => {
   return <StyledButton 
     percent={percent}
     width={width}
     height={height}
     textColor={textColor}
+    fontFami={fontFami}
     bgColor={bgColor}
     boderColor={boderColor}
     fontSize={fontSize}
@@ -34,5 +37,5 @@ export const Button = ({ width, height, textColor, bgColor, boderColor, percent,
   width: "128px",
   height: "46px",
   borderRadius: '40px',
-  fontSize: "16px",
+  fontSize: "16px"
 };
