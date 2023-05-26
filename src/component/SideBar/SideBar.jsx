@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import logo from 'assets/image/Logo.svg';
+import Logo from "component/Logo/index";
 import iconDashboard from 'assets/image/Icon1.svg';
 import iconMarket from 'assets/image/Icon2.svg';
 import iconActiveBids from 'assets/image/Icon3.svg';
@@ -16,27 +16,20 @@ import ethereumBlack from 'assets/image/EthereumBlack.svg';
 import arrowRight from 'assets/image/arrow-right.svg';
 import add from 'assets/image/add.svg';
 import { NavLink } from "react-router-dom";
+import { useState } from "react";
 
 const StyledSideBar = styled.div`
     background-color: white;
     height: 100vh;
     padding: 32px;
-    .logo{
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        margin-bottom: 54px;
+    .light .toggle .ball {
+        background-color: #FFFFFF;
+        transform: translateX(-12px);
     }
-    .logo-text {
-        font-weight: 700;
-        font-size: 28px;
-        line-height: 36px;
-        color: #27262E;
-    }
-    .logo-desc{
-        font-size: 10px;
-        line-height: 13px;
-        color: #7A797D;
+    .dark .toggle .ball{
+        background-color: #151d2a;
+        transition: 0.3s;
+        transform: translateX(12px);
     }
 `;
 
@@ -61,7 +54,7 @@ const LightSwitch = styled.div`
     align-items: stretch;
 `;
 
-const Switch = styled.div`
+const Switch2 = styled.div`
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -70,11 +63,12 @@ const Switch = styled.div`
     .toggle{
         position: relative;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: center;
         width: 100%;
-        max-height: 34px;
+        height: 22px;
         border-radius: 25px;
+        padding: 4px;
         cursor: pointer;
         background: linear-gradient(145deg, #e1e1e1, #fff);
         box-shadow: 3px 3px 4px #e6e6e6, -3px -3px 4px #fff;
@@ -83,16 +77,17 @@ const Switch = styled.div`
         display: none;
     }
     .icon{
-        width: 46%;
+        width: 14px;
         z-index: 1;
     }
 `;
 const Ball = styled.span`
     position: absolute;
-    width: 26px;
-    height: 26px;
+    width: 22px;
+    height: 22px;
     border-radius: 50%;
     background-color: #AE9AFF;
+    transition: 0.3s;
 `;
 
 const StyledBalance = styled.div`
@@ -194,15 +189,22 @@ const Balance = ({numETH}) => {
 }
 
 const SideBar = () => {
+
+    const[toggle, setToggle] = useState("light");
+    const onChangeToggle = (coook) => {
+        console.log(coook)
+        if(coook.target.checked)
+        setToggle("light")
+        else{
+            setToggle("dark")
+        }
+    }
+    // const onDark = () => {
+    //     setToggle();
+    // }
     return (
         <StyledSideBar>
-            <div className="logo">
-                <img src={logo} alt="logo"/>
-                <div>
-                    <div className="logo-text">MyNFT</div>
-                    <div className="logo-desc">NFT Marketplace</div>
-                </div>
-            </div>
+            <Logo></Logo>
             <div className="nav">
                 <NavItem text="Dashboard" path="/" iconsidebar={iconDashboard}></NavItem>
                 <NavItem text="Market" path="/" iconsidebar={iconMarket}></NavItem>
@@ -220,14 +222,14 @@ const SideBar = () => {
                 <h4>OTHER</h4>
                 <LightSwitch>
                     <NavItem text="Light Mode" path="/" iconsidebar={iconLightMode}></NavItem>
-                    <Switch>
-                        <input type="checkbox" className="checkbox" id="toggle" />
-                        <label className="toggle">
+                    <Switch2 className={toggle}>
+                        <input onChange={onChangeToggle} type="checkbox" className="checkbox" id="toggle" />
+                        <label for="toggle" className="toggle">
                             <img src={iconSun} alt="sun" className="icon" />
                             <img src={iconMoon} alt="moon" className="icon" />
-                            <Ball></Ball>
+                            <Ball className="ball"></Ball>
                         </label>
-                    </Switch>
+                    </Switch2>
                 </LightSwitch>
             </div>
             <Balance numETH={"1,034.02"}></Balance>

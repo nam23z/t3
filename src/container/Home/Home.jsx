@@ -2,8 +2,11 @@ import { Widget } from 'component/Widget/Widget';
 import { TopCreate } from 'component/TopCreate/TopCreate';
 import PrimaryLayout from 'component/Layout';
 import { styled } from 'styled-components';
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
 import Button from 'component/Button';
 import bgBanner from 'assets/image/bgBanner.svg';
+import bgBanner2 from 'assets/image/banner2.jpg';
 import TrendingArt from 'component/TrendingArt';
 import Art1 from 'assets/image/art1.svg';
 import Art2 from 'assets/image/Art2.svg';
@@ -25,6 +28,12 @@ const StyledBannerA = styled.div`
     display: flex;
     width: 100%;
     justify-content: space-between;
+    .crs{
+        width: 66%;
+        height: 354px;
+        padding-bottom: 50px;
+    }
+    
 `;
 
 const StyledBannerAA = styled.div`
@@ -36,7 +45,8 @@ const StyledBannerAA = styled.div`
         text-align: left;
         line-height: 65px;
         word-wrap: break-word;
-        margin-top: 77px;
+        padding-top: 77px;
+        margin-top: 0;
         margin-left: 60px;
         color: #FFFFFF;
         font-family: 'Epilogue';
@@ -139,9 +149,10 @@ const fakedataTrendingArt = [
         numETH: 6.12
     }
 ]
-const BannerA = ({imge}) => {
+const BannerA = ({imge,imge2}) => {
     return(
         <StyledBannerA>
+            <Carousel className='crs' autoPlay={true} showStatus={false} showArrows={false} showIndicators={true}>
                 <StyledBannerAA imge={imge}>
                     <h1>Discover, Create and Sell Your Own NFT.</h1>
                     <StyledButtonBanner>
@@ -162,9 +173,30 @@ const BannerA = ({imge}) => {
                         </Button>
                     </StyledButtonBanner>
                 </StyledBannerAA>
-                    <StyledWidgett>
-                        {fakedatawidget.map((item)=>{return <Widget percent={item.percent} nameETH={item.title} typeETH={item.type} numETH={item.number}></Widget>})}
-                    </StyledWidgett>
+                <StyledBannerAA imge={imge}>
+                <h1>This is Your Second Banner</h1>
+                    <StyledButtonBanner>
+                        <Button
+                            bgColor={"#FFFFFF"}
+                            textColor={"#5429FF"}
+                            fontSize={"16px"}
+                            fontFami={"DM Sans"}
+                        >
+                            Discover
+                        </Button>
+                        <Button
+                            bgColor={"transparent"}
+                            textColor={"#FFFFFF"}
+                            boderColor={"#FFFFFF"}
+                        >
+                            Create
+                        </Button>
+                    </StyledButtonBanner>
+                </StyledBannerAA>
+            </Carousel>
+            <StyledWidgett>
+                {fakedatawidget.map((item)=>{return <Widget percent={item.percent} nameETH={item.title} typeETH={item.type} numETH={item.number}></Widget>})}
+            </StyledWidgett>
         </StyledBannerA>
     );
 }
@@ -205,7 +237,7 @@ const Home = () => {
     return (
         <PrimaryLayout>
             <StyledHome>
-                <BannerA imge={bgBanner}></BannerA>
+                <BannerA imge={bgBanner} imge2={bgBanner2}></BannerA>
                 <TrendingAuction></TrendingAuction>
             </StyledHome>
         </PrimaryLayout>
