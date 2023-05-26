@@ -1,20 +1,20 @@
 import { styled } from "styled-components";
 import Logo from "component/Logo/index";
-import iconDashboard from 'assets/image/Icon1.svg';
-import iconMarket from 'assets/image/Icon2.svg';
-import iconActiveBids from 'assets/image/Icon3.svg';
-import iconMyportfolio from 'assets/image/Icon4.svg';
-import iconWallet from 'assets/image/Icon5.svg';
-import iconFavourites from 'assets/image/Icon6.svg';
-import iconHistory from 'assets/image/Icon7.svg';
-import iconSetting from 'assets/image/Icon8.svg';
-import iconLightMode from 'assets/image/Icon9.svg';
+import { ReactComponent as IconDashboard} from 'assets/image/Icon1.svg';
+import { ReactComponent as IconMarket} from 'assets/image/Icon2.svg';
+import { ReactComponent as IconActiveBids} from 'assets/image/Icon3.svg';
+import { ReactComponent as IconMyportfolio} from 'assets/image/Icon4.svg';
+import { ReactComponent as IconWallet} from 'assets/image/Icon5.svg';
+import { ReactComponent as IconFavourites} from 'assets/image/Icon6.svg';
+import { ReactComponent as IconHistory} from 'assets/image/Icon7.svg';
+import { ReactComponent as IconSetting} from 'assets/image/Icon8.svg';
+import { ReactComponent as IconLightMode} from 'assets/image/Icon9.svg';
 import iconSun from 'assets/image/sun.svg';
 import iconMoon from 'assets/image/moon.svg';
 import ethereumLarge from 'assets/image/EthereumLarge.svg';
 import ethereumBlack from 'assets/image/EthereumBlack.svg';
 import arrowRight from 'assets/image/arrow-right.svg';
-import add from 'assets/image/add.svg';
+import  add from 'assets/image/add.svg';
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 
@@ -23,13 +23,28 @@ const StyledSideBar = styled.div`
     height: 100vh;
     padding: 32px;
     .light .toggle .ball {
-        background-color: #FFFFFF;
+        background-color: #CAEAE6;
         transform: translateX(-12px);
     }
     .dark .toggle .ball{
         background-color: #151d2a;
         transition: 0.3s;
         transform: translateX(12px);
+    }
+    .active {
+        svg {
+            stroke: #f30ee4;
+            fill: #f30ee4;
+        path {
+            stroke: #f30ee4;
+        }  
+    }
+    color: #f30ee4;
+  }
+    .iconSideBar{
+            path:first-child{
+            /* fill: #7A797D; */
+        }
     }
 `;
 
@@ -45,6 +60,9 @@ const StyledNavItem = styled.div`
     a{
         text-decoration: unset;
         color: #7A797D;
+    }
+    .iconSideBar{
+        
     }
 `;
 
@@ -160,11 +178,10 @@ const StyledBalance = styled.div`
         z-index: 1;
     }
 `
-const NavItem = ({text, path, iconsidebar}) => {
+const NavItem = ({text, path, children}) => {
     return (
         <StyledNavItem>
-            <img src={iconsidebar} alt="nav-icon"></img>
-            <NavLink to={path}>{text}</NavLink>
+                <NavLink to={path} className={"iconSideBar"} >{children}{text}</NavLink>
         </StyledNavItem>
     )
 }
@@ -192,7 +209,6 @@ const SideBar = () => {
 
     const[toggle, setToggle] = useState("light");
     const onChangeToggle = (coook) => {
-        console.log(coook)
         if(coook.target.checked)
         setToggle("light")
         else{
@@ -206,22 +222,22 @@ const SideBar = () => {
         <StyledSideBar>
             <Logo></Logo>
             <div className="nav">
-                <NavItem text="Dashboard" path="/" iconsidebar={iconDashboard}></NavItem>
-                <NavItem text="Market" path="/" iconsidebar={iconMarket}></NavItem>
-                <NavItem text="Active Bids" path="/" iconsidebar={iconActiveBids}></NavItem>
+                <NavItem text="Dashboard" path="/"><IconDashboard></IconDashboard></NavItem>
+                <NavItem text="Login" path="/login" ><IconMarket></IconMarket></NavItem>
+                <NavItem text="About" path="/about"><IconActiveBids></IconActiveBids></NavItem>
             </div>
             <div className="profile">
                 <h4>PROFILE</h4>
-                <NavItem text="My Portfolio" path="/" iconsidebar={iconMyportfolio}></NavItem>
-                <NavItem text="Wallet" path="/" iconsidebar={iconWallet}></NavItem>
-                <NavItem text="Favourites" path="/" iconsidebar={iconFavourites}></NavItem>
-                <NavItem text="History" path="/" iconsidebar={iconHistory}></NavItem>
-                <NavItem text="Settings" path="/" iconsidebar={iconSetting}></NavItem>
+                <NavItem text="My Portfolio" path="/a"><IconMyportfolio></IconMyportfolio></NavItem>
+                <NavItem text="Wallet" path="/b"><IconWallet></IconWallet></NavItem>
+                <NavItem text="Favourites" path="/c"><IconFavourites></IconFavourites></NavItem>
+                <NavItem text="History" path="/d"><IconHistory></IconHistory></NavItem>
+                <NavItem text="Settings" path="/e"><IconSetting></IconSetting></NavItem>
             </div>
             <div className="other">
                 <h4>OTHER</h4>
                 <LightSwitch>
-                    <NavItem text="Light Mode" path="/" iconsidebar={iconLightMode}></NavItem>
+                    <NavItem text="Light Mode" path="/f"><IconLightMode></IconLightMode></NavItem>
                     <Switch2 className={toggle}>
                         <input onChange={onChangeToggle} type="checkbox" className="checkbox" id="toggle" />
                         <label for="toggle" className="toggle">
