@@ -9,6 +9,7 @@ import Avt5 from '../../assets/image/avt5.svg';
 import Avt6 from '../../assets/image/avt6.svg';
 const TopCreated = styled.div`
     margin: 0 auto;
+    margin-right: 0;
     padding: 0 24px;
     width: 300px;
     height: 478px;

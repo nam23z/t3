@@ -32,7 +32,7 @@ const Proper = styled.div`
 
 const formatNumber = (number) => new Intl.NumberFormat('en-IN', { minimumSignificantDigits: 3 }).format(number)
 
-export const Widget = ({percent, children, nameETH, numETH, typeETH}) => {
+export const Widget = ({percent, nameETH, numETH, typeETH}) => {
     return (
     <Proper>
         <p className="nam">{nameETH}</p>

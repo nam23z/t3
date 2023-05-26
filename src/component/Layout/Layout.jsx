@@ -7,7 +7,7 @@ const StyledLayout = styled.div`
     background-color: #CAEAE6;
     width: 1440px;
     margin: 0 auto;
-    min-height: 100vh;
+    /* min-height: 100vh; */
     .right{
         float: right;
         width: 80%;
@@ -16,7 +16,7 @@ const StyledLayout = styled.div`
 
 const ContentStyled = styled.div`
     background-color: #CAEAE6;
-    height: 100vh;
+    min-height: 100vh;
     padding: 8px 32px;
 `;
 

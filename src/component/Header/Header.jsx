@@ -4,6 +4,7 @@ import SearchIcon from '../../assets/image/search-normal.svg';
 import IconNoti from '../../assets/image/IconNoti.svg';
 import MyAvt from '../../assets/image/MyAvt.svg';
 const StyledHeader = styled.div`
+    background-color: #CAEAE6;
     display: flex;
     justify-content: space-between;
     z-index: 99;
