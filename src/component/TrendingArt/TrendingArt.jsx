@@ -14,11 +14,42 @@ const StyledTrendingArt = styled.div`
     }
     .img{
         position: relative;
+        opacity: 1;
         width: 324px;
         height: 196px;
         padding-top: 12px;
         margin-left: 12px;
-        background: url(${props => props.imge}) center center / 100% no-repeat;
+        display: block;
+        transition: 0.5s ease;
+        backface-visibility: hidden;
+        img{
+            width: 100%;
+        }
+    }
+    .hoverArt{
+        transition: 0.5 ease;
+        opacity: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        text-align: center;
+    }
+    .img:hover img{
+        opacity: 0.5;
+    }
+    .img:hover .hoverArt{
+        opacity: 1;
+    }
+    .hoverArtText{
+        cursor: pointer;
+        background-color: #FFFFFF;
+        color: #5429FF;
+        font-family: 'DM Sans';
+        font-size: 16px;
+        font-weight: bold;
+        padding: 12px 30px;
+        border-radius: 40px;
     }
     .clockArt{
         background-color: rgba(22, 22, 22, 0.16);
@@ -31,10 +62,6 @@ const StyledTrendingArt = styled.div`
         p{
             font-size: 12px;
             color: #FFFFFF;
-        }
-        Clock{
-            width: 16px;
-            height: 16px;
         }
         bottom: 16px;
         left: 8px;
@@ -87,9 +114,13 @@ const TrendingArt = ({imge,name,likes,avt,email,numETH}) => {
     return(
         <StyledTrendingArt imge={imge}>
             <div className="img">
+                <img src={imge} alt="art" />
                 <div className="clockArt">
                     <Clock></Clock>
                     <p>12 : 03 : 45</p>
+                </div>
+                <div className="hoverArt">
+                    <div className="hoverArtText">Place a Bid</div>
                 </div>
             </div>
             <div>

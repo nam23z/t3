@@ -219,7 +219,7 @@ const SideBar = () => {
             <div className="nav">
                 <NavItem text="Dashboard" path="/"><IconDashboard></IconDashboard></NavItem>
                 <NavItem text="Login" path="/login" ><IconMarket></IconMarket></NavItem>
-                <NavItem text="About" path="/about"><IconActiveBids></IconActiveBids></NavItem>
+                <NavItem text="Active Bids" path="/activeBids"><IconActiveBids></IconActiveBids></NavItem>
             </div>
             <div className="profile">
                 <h4>PROFILE</h4>
