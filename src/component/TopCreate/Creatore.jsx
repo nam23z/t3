@@ -1,6 +1,7 @@
 import React from "react";
 import { styled } from "styled-components";
 import Button from "component/Button";
+import { useState } from "react";
 
 const StyledCreator = styled.div`
     display: flex;
@@ -17,8 +18,20 @@ const StyledCreator = styled.div`
         font-size: 12px;
         line-height: 16px;
     }
+    .following{
+        background-color: #5429FF;
+        color: #FFFFFF;
+    }
 `
 const Creatore = ({num, avt, name, mail}) => {
+    const[follow, setFollow] = useState("notfollow");
+    const onFollow = (fl) =>{
+        if(fl.value === "following"){
+            setFollow("notfollow")
+        }else{
+            setFollow("following")
+        }
+    }
     return (
         <StyledCreator>
                 <div>{num}.</div>
@@ -33,8 +46,11 @@ const Creatore = ({num, avt, name, mail}) => {
                     fontSize={"12px"}
                     width={"77px"}
                     height={"32px"}
+                    onClick={onFollow}
+                    className={follow}
+                    follow={follow}
                 >
-                    Follow
+                    {follow}
                 </Button>
             </div>
         </StyledCreator>
