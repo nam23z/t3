@@ -41,23 +41,18 @@ const StyledSideBar = styled.div`
     }
     color: #f30ee4;
   }
-    .iconSideBar{
-            path:first-child{
-            /* fill: #7A797D; */
-        }
-    }
 `;
 
 const StyledNavItem = styled.div`
-    display: flex;
-    align-items: center;
-    gap: 16px;
     font-size: 16px;
     font-weight: 500;
     line-height: 21px;
     color: #7A797D;
     margin-bottom: 25px;
     a{
+        display: flex;
+        align-items: center;
+        gap: 16px;
         text-decoration: unset;
         color: #7A797D;
     }
@@ -181,7 +176,7 @@ const StyledBalance = styled.div`
 const NavItem = ({text, path, children}) => {
     return (
         <StyledNavItem>
-                <NavLink to={path} className={"iconSideBar"} >{children}{text}</NavLink>
+                <NavLink to={path} className={"iconSideBar"} >{children}<span>{text}</span></NavLink>
         </StyledNavItem>
     )
 }
@@ -203,7 +198,7 @@ const Balance = ({numETH}) => {
             </div>
         </StyledBalance>
     )
-}
+};
 
 const SideBar = () => {
 
